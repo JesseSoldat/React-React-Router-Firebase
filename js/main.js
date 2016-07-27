@@ -13,10 +13,19 @@ var config = {
 
 import {Router, Route, IndexRoute, Link, hashHistory, browserHistory } from 'react-router';
 
-
-
 import {
+	WelcomeComponent,
+	RegisterComponent,
+	LoginComponent,
 	AddProfileComponent
 } from './views';
 
-ReactDom.render(<AddProfileComponent/>, document.getElementById('root'));
+ReactDom.render((
+	<Router history={hashHistory}>
+		<Route path="/" component={WelcomeComponent}>
+			<Route path="register" component={RegisterComponent} />
+			<Route path="login" component={LoginComponent} />
+		</Route>
+	</Router>
+
+), document.getElementById('root'));
