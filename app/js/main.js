@@ -11,13 +11,25 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _firebase = require('firebase');
+
+var _firebase2 = _interopRequireDefault(_firebase);
+
 var _reactRouter = require('react-router');
 
 var _views = require('./views');
 
-_reactDom2['default'].render(_react2['default'].createElement(_views.AppComponent, null), document.getElementById('root'));
+var config = {
+  apiKey: "AIzaSyDrBaMFNOe8j8q22qg7uuPECOwqJAr27v8",
+  authDomain: "reactfire-709f3.firebaseapp.com",
+  databaseURL: "https://reactfire-709f3.firebaseio.com",
+  storageBucket: ""
+};
+_firebase2['default'].initializeApp(config);
 
-},{"./views":3,"react":239,"react-dom":7,"react-router":37}],2:[function(require,module,exports){
+_reactDom2['default'].render(_react2['default'].createElement(_views.AddProfileComponent, null), document.getElementById('root'));
+
+},{"./views":3,"firebase":5,"react":239,"react-dom":7,"react-router":37}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -30,20 +42,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _firebase = require('firebase');
-
-var _firebase2 = _interopRequireDefault(_firebase);
-
-var config = {
-	apiKey: "AIzaSyDrBaMFNOe8j8q22qg7uuPECOwqJAr27v8",
-	authDomain: "reactfire-709f3.firebaseapp.com",
-	databaseURL: "https://reactfire-709f3.firebaseio.com",
-	storageBucket: ""
-};
-_firebase2['default'].initializeApp(config);
-
 exports['default'] = _react2['default'].createClass({
-	displayName: 'app',
+	displayName: 'add-profile',
 
 	mixins: [ReactFireMixin],
 
@@ -58,7 +58,7 @@ exports['default'] = _react2['default'].createClass({
 	},
 
 	componentWillMount: function componentWillMount() {
-		var firebaseRef = _firebase2['default'].database().ref('testApp/users');;
+		var firebaseRef = firebase.database().ref('testApp/users');;
 		this.bindAsArray(firebaseRef, 'users');
 	},
 
@@ -137,7 +137,7 @@ exports['default'] = _react2['default'].createClass({
 });
 module.exports = exports['default'];
 
-},{"firebase":5,"react":239}],3:[function(require,module,exports){
+},{"react":239}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -146,13 +146,13 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _app = require('./app');
+var _addProfile = require('./add-profile');
 
-var _app2 = _interopRequireDefault(_app);
+var _addProfile2 = _interopRequireDefault(_addProfile);
 
-exports.AppComponent = _app2['default'];
+exports.AddProfileComponent = _addProfile2['default'];
 
-},{"./app":2}],4:[function(require,module,exports){
+},{"./add-profile":2}],4:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};

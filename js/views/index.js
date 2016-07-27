@@ -1,10 +1,10 @@
-import AppComponent from './app';
+import AddProfileComponent from './add-profile';
 
 
 
 
 
 export {
-	AppComponent
+	AddProfileComponent
 };
 
